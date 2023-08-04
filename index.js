@@ -8,7 +8,11 @@ app.set('views',path.join(__dirname,'views'))
 
 
 app.get('/',(req,res)=>{
-    return res.render('home');
+    return res.render('home',{title:"my contact list"});
+})
+
+app.get('/pratice',(req,res)=>{
+    return res.render('pratice',{title: "pratice"})
 })
 
 const port=8000;
