@@ -27,6 +27,10 @@
                 <li>
                     <p><%= i.name %></p>
                     <p><%= i.phone %></p>
+                    <form action="/delete-contact" method="post">
+                        <input type="hidden" name="name" value="<%= i.name %>">
+                        <button type="submit">Delete</button>
+                    </form>
                 </li>
             <% } %>
         </ul>
@@ -34,7 +38,7 @@
     </div>
     <form action="add-contact" method="post">
         <input type="text" name="name" placeholder="enter name" required>
-        <input type="nember" name="phone number" placeholder="enter phoneno" required >
+        <input type="nember" name="phone" placeholder="enter phoneno" required >
         <button type="submit"> Add contact</button>
 
 

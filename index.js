@@ -6,6 +6,7 @@ const app=express();
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'))
 
+app.use(express.urlencoded({ extended: false }));
 
 // app.get('/',(req,res)=>{
 //     return res.render('home',{title:"my contact list"});
@@ -27,7 +28,6 @@ var contactList=[
 ]
 
 
-
 app.get('/pratice',(req,res)=>{
     return res.render('pratice',{title: "pratice"})
 })
@@ -37,9 +37,38 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/add-contact',(req,res)=>{
-    return res.redirect('/demo')
+    // return res.redirect('/demo')
+    // console.log(req.body);
+    
+    
+    // const newContact = {
+    //     name: req.body.name,
+    //     phone: req.body.phone
+    // };
+   
+
+    contactList.push(req.body);
+
+      return res.redirect('/');
 
 })
+
+//delete one from array 
+
+app.post('/delete-contact', (req, res) => {
+    const nameToDelete = req.body.name;
+
+    // Remove the contact from the contactList array
+    contactList = contactList.filter(contact => contact.name !== nameToDelete);
+
+    return res.redirect('/');
+});
+
+
+
+
+
+
 app.get('/demo',(req,res)=>{
     res.render('demo');
 })
