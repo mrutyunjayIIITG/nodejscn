@@ -33,8 +33,17 @@ app.get('/pratice',(req,res)=>{
 })
 
 app.get('/',(req,res)=>{
-    return res.render('pratice',{title: "contactname",contact_list: contactList})
+    return res.render('home',{title: "contactname",contact_list: contactList})
 })
+
+app.post('/add-contact',(req,res)=>{
+    return res.redirect('/demo')
+
+})
+app.get('/demo',(req,res)=>{
+    res.render('demo');
+})
+
 
 const port=8000;
 app.listen(port,(err)=>{
