@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EJS Playground</title>
+    <title>title</title>
 </head>
 <body>
-    <h1>Rendered from EJS</h1> 
+    <h1>contact list </h1>
+    
+    <div>
 
-    <h1>playground</h1>
-    <ul>
-        <% for(let i = 0; i < 6; i++) { %>
-            <li>
-                <%= i %>
-            </li>
-        <% } %>
-
+        <ul>
+            <% for (let i of contact_list) { %>
+                <li>
+                    <p><%= i.name %></p>
+                    <p><%= i.phone %></p>
+                </li>
+            <% } %>
+        </ul>
         
-    </ul>
+    </div>
+
+   
 </body>
 </html>
