@@ -30,9 +30,11 @@ const url3='mongodb+srv://routmrutyunjay:Raja%40mongodb95@cluster0.ytlgema.mongo
       useUnifiedTopology: true,
     });
 
+
     console.log('Connected to Database :: MongoDB');
   } catch (error) {
     console.error('Error connecting to MongoDB:', error.message);
   }
 };        
 module.exports = connectToDatabase;
+
