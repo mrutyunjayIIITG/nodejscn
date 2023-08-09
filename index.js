@@ -1,6 +1,9 @@
 const express= require('express');
 const path =require('path');
 
+
+const connectDB = require('./config/mongoose');
+connectDB();
 const app=express();
 
 app.set('view engine','ejs');
@@ -64,7 +67,7 @@ app.post('/delete-contact', (req, res) => {
     return res.redirect('/');
 });
 
-
+//ctreating from middleware
 
 //check
 
@@ -81,3 +84,5 @@ app.listen(port,(err)=>{
     }
     console.log(`server running at ${port}`);
 })
+// Call the connectDB function to establish the MongoDB connection
+
