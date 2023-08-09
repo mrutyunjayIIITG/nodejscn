@@ -21,10 +21,11 @@
 const mongoose = require('mongoose');
 const url='mongodb+srv://user:Passw0rd@mongodb.p3dgcod.mongodb.net/stocks?retryWrites=true&w=majority'
 const url1='mongodb+srv://routmrutyunjay:Raja%40mongodb95@cluster0.ytlgema.mongodb.net/contacts?retryWrites=true&w=majority'
-const url2='mongodb+srv://routmrutyunjay:Raja%40mongodb95@cluster0.ytlgema.mongodb.net/?retryWrites=true&w=majority'
+const url3='mongodb+srv://routmrutyunjay:Raja%40mongodb95@cluster0.ytlgema.mongodb.net/?retryWrites=true&w=majority'
+
  const connectToDatabase = async () => {
   try {
-    await mongoose.connect(url2, {
+    await mongoose.connect(url3, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
