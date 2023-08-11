@@ -4,6 +4,7 @@ const path =require('path');
 
 const connectDB = require('./config/mongoose');
 connectDB();
+const Contact =require('./models/contact');
 const app=express();
 
 app.set('view engine','ejs');
@@ -39,22 +40,41 @@ app.get('/',(req,res)=>{
     return res.render('home',{title: "contactname",contact_list: contactList})
 })
 
-app.post('/add-contact',(req,res)=>{
-    // return res.redirect('/demo')
-    // console.log(req.body);
+// app.post('/add-contact',(req,res)=>{
+//     // return res.redirect('/demo')
+//     // console.log(req.body);
     
     
-    // const newContact = {
-    //     name: req.body.name,
-    //     phone: req.body.phone
-    // };
+//     // const newContact = {
+//     //     name: req.body.name,
+//     //     phone: req.body.phone
+//     // };
    
 
-    contactList.push(req.body);
+//     // contactList.push(req.body);
+//       Contact.create({
+//         name: req.body.name,
+//         phone: req.body.phone
+//       },function(err,newContact){
+//         if(err){
+//             console.log('error in creating')
+//         }
+//       })
+      
+//       return res.redirect('/');
 
-      return res.redirect('/');
+//})
+app.post('/add-contact', async (req, res) => {
+    try {
+        // Create a new contact using the Contact model
+        await Contact.create(req.body);
 
-})
+        return res.redirect('/');
+    } catch (error) {
+        console.error('Error adding contact:', error.message);
+        return res.status(500).send('Internal Server Error');
+    }
+});
 
 //delete one from array 
 
